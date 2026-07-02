@@ -1,0 +1,41 @@
+KBC-Dashboard/
+│
+├── index.html
+├── package.json
+├── vite.config.js
+│
+├── public/
+│   └── assets/
+│       ├── css/
+│       ├── images/
+│       ├── icons/
+│       └── fonts/
+│
+└── src/
+    ├── App.jsx
+    ├── main.jsx
+    │
+    ├── abi/
+    │   ├── ContractABI.js
+    │   └── StableCoinABI.js
+    │
+    ├── components/
+    │   ├── Navbar.jsx
+    │   ├── Statistics.jsx
+    │   ├── Slider.jsx
+    │   ├── UserInfo.jsx
+    │   ├── NetworkInfo.jsx
+    │   ├── LevelInfo.jsx
+    │   ├── PoolHistory.jsx
+    │   ├── RewardInfo.jsx
+    │   ├── Registration.jsx
+    │   ├── Deposit.jsx
+    │   ├── Withdraw.jsx
+    │   ├── Loader.jsx
+    │   └── Footer.jsx
+    │
+    ├── services/
+    │   └── contract.js
+    │
+    └── utils/
+        └── helpers.js
