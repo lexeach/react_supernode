@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
+// Change this line in src/main.jsx
+import './assets/css/bootstrap.min.css';
 
 // Bootstrap CSS
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
 
 // Swiper CSS
 import "swiper/css";
