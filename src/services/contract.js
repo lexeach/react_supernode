@@ -9,7 +9,7 @@ import StableCoinABI from "../abi/StableCoinABI";
 ============================================================ */
 
 export const CONTRACT_ADDRESS =
-    "0xa8669D74381146400Ed800d23a1E899E5d94ae17";
+    "0xd842954Dff871328C932Cd9CA3c260Cc22CC4655";
 
 export const STABLE_COIN_ADDRESS =
     "0x0EB11261F9F778fEfd688e2dfAdB77862E96605b";
