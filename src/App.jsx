@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import Statistics from "./components/Statistics";
 import Slider from "./components/Slider";
@@ -12,10 +13,32 @@ import Withdraw from "./components/Withdraw";
 import Footer from "./components/Footer";
 
 function App() {
+    const [walletAddress, setWalletAddress] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    const connectWallet = async () => {
+        if (window.ethereum) {
+            setLoading(true);
+            try {
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                setWalletAddress(accounts[0]);
+            } catch (error) {
+                console.error("Connection failed:", error);
+            } finally {
+                setLoading(false);
+            }
+        } else {
+            alert("Please install MetaMask!");
+        }
+    };
+
     return (
-        // Added the 'dashboard' and 'bg-dashboard' classes here
         <div className="dashboard bg-dashboard"> 
-            <Navbar />
+            <Navbar 
+                walletAddress={walletAddress} 
+                connectWallet={connectWallet} 
+                loading={loading} 
+            />
             <Statistics />
             <Slider />
             
