@@ -37,7 +37,17 @@ function App() {
             <Navbar 
                 walletAddress={walletAddress} 
                 connectWallet={connectWallet} 
-                loading={loading} 
+               loading={loading} 
+            />
+            
+            {/* Pass the fetched data to your components */}
+            <Statistics data={userData} />
+            <Slider />
+            
+            <div className="row px-5">
+                <UserInfo data={userData} />
+                <NetworkInfo data={userData} />
+            </div> 
             />
             <Statistics />
             <Slider />
