@@ -1,18 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-// Change this line in src/main.jsx
-import './assets/css/bootstrap.min.css';
 
-// Bootstrap CSS
-//import "bootstrap/dist/css/bootstrap.min.css";
-
-// Swiper CSS
+// 1. External Library CSS (Swiper)
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-// Project CSS
+// 2. Local Project CSS (Ensure these files exist in src/assets/css/)
 import "./assets/css/bootstrap.min.css";
 import "./assets/css/app.css";
 import "./assets/css/responsive.css";
