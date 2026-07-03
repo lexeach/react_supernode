@@ -12,55 +12,36 @@ import Withdraw from "./components/Withdraw";
 import Footer from "./components/Footer";
 
 function App() {
-
     return (
-
-        <>
-
+        // Added the 'dashboard' and 'bg-dashboard' classes here
+        <div className="dashboard bg-dashboard"> 
             <Navbar />
-
             <Statistics />
-
             <Slider />
-
+            
             <div className="row px-5">
-
                 <UserInfo />
-
                 <NetworkInfo />
-
             </div>
 
             <div className="row px-5">
-
                 <LevelInfo />
-
                 <PoolHistory />
-
             </div>
 
             <div className="row px-5">
-
                 <RewardInfo />
-
                 <Registration />
-
             </div>
 
             <div className="row px-5">
-
                 <Deposit />
-
                 <Withdraw />
-
             </div>
 
             <Footer />
-
-        </>
-
+        </div>
     );
-
 }
 
 export default App;
