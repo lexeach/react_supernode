@@ -1,3 +1,26 @@
+/* 1. Ensure the form-control inside the dashboard looks correct */
+.reward-box .form-control {
+  background-color: #011818 !important; /* Matches your dashboard background */
+  border: 1px solid #f672a7 !important; /* Uses your theme's pink border */
+  color: #5cb30a !important;            /* Uses your theme's green text */
+  padding: 10px;
+}
+
+/* 2. Optional: Style the placeholder text to be visible */
+.reward-box .form-control::placeholder {
+  color: rgba(92, 179, 10, 0.5) !important;
+}
+
+/* 3. Ensure the input box stands out when clicked */
+.reward-box .form-control:focus {
+  box-shadow: 0 0 8px rgba(27, 253, 156, 0.4) !important;
+  border-color: #5cb30a !important;
+}
+
+
+
+
+
 .sidebar {
   padding: 0;
   margin: 0;
