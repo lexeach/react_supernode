@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Web3 from "web3"; // Ensure web3 is imported
+import React, { useState, useEffect } from "react"; // 1. Added useEffect here
+import Web3 from "web3"; // 2. Added Web3 import
 import Navbar from "./components/Navbar";
 import Statistics from "./components/Statistics";
 import Slider from "./components/Slider";
@@ -18,28 +18,20 @@ function App() {
     const [loading, setLoading] = useState(false);
     const [userData, setUserData] = useState({});
 
-    // 1. Function to fetch data from the contract
     const fetchContractData = async (address) => {
         if (!window.ethereum) return;
         
         const web3 = new Web3(window.ethereum);
-        // const contract = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
         
         try {
-            // Placeholder: Replace with your actual contract methods
-            const mockData = { 
-                totalMintable: "150.5 KBC", 
-                myNodes: "5",
-                totalNodes: 100,
-                soldNodes: 20
-            }; 
+            // Placeholder: Replace with your actual contract call
+            const mockData = { totalMintable: "150.5 KBC", myNodes: "5" }; 
             setUserData(mockData);
         } catch (error) {
             console.error("Error fetching data:", error);
         }
     };
 
-    // 2. Logic to connect wallet
     const connectWallet = async () => {
         if (window.ethereum) {
             setLoading(true);
@@ -57,7 +49,6 @@ function App() {
         }
     };
 
-    // 3. Keep data synced if the user switches accounts
     useEffect(() => {
         if (window.ethereum) {
             window.ethereum.on('accountsChanged', (accounts) => {
