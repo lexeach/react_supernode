@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Web3 from "web3"; // Ensure web3 is imported
 import Navbar from "./components/Navbar";
 import Statistics from "./components/Statistics";
 import Slider from "./components/Slider";
@@ -15,7 +16,7 @@ import Footer from "./components/Footer";
 function App() {
     const [walletAddress, setWalletAddress] = useState("");
     const [loading, setLoading] = useState(false);
-    const [userData, setUserData] = useState({}); // Stores contract data
+    const [userData, setUserData] = useState({});
 
     // 1. Function to fetch data from the contract
     const fetchContractData = async (address) => {
@@ -25,9 +26,13 @@ function App() {
         // const contract = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
         
         try {
-            // Example: const data = await contract.methods.getUserInfo(address).call();
-            // Update this based on your actual contract methods
-            const mockData = { totalMintable: "150.5 KBC", myNodes: "5" }; 
+            // Placeholder: Replace with your actual contract methods
+            const mockData = { 
+                totalMintable: "150.5 KBC", 
+                myNodes: "5",
+                totalNodes: 100,
+                soldNodes: 20
+            }; 
             setUserData(mockData);
         } catch (error) {
             console.error("Error fetching data:", error);
@@ -41,7 +46,7 @@ function App() {
             try {
                 const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
                 setWalletAddress(accounts[0]);
-                fetchContractData(accounts[0]); // Fetch data immediately after connection
+                fetchContractData(accounts[0]);
             } catch (error) {
                 console.error("Connection failed:", error);
             } finally {
@@ -52,7 +57,7 @@ function App() {
         }
     };
 
-    // 3. Keep data synced if the user switches accounts in MetaMask
+    // 3. Keep data synced if the user switches accounts
     useEffect(() => {
         if (window.ethereum) {
             window.ethereum.on('accountsChanged', (accounts) => {
@@ -70,29 +75,12 @@ function App() {
                 loading={loading} 
             />
             
-            {/* Pass the fetched data to your components */}
             <Statistics data={userData} />
             <Slider />
             
             <div className="row px-5">
                 <UserInfo data={userData} />
                 <NetworkInfo data={userData} />
-            </div>            
-            {/* Pass the fetched data to your components */}
-            <Statistics data={userData} />
-            <Slider />
-            
-            <div className="row px-5">
-                <UserInfo data={userData} />
-                <NetworkInfo data={userData} />
-            </div> 
-            />
-            <Statistics />
-            <Slider />
-            
-            <div className="row px-5">
-                <UserInfo />
-                <NetworkInfo />
             </div>
 
             <div className="row px-5">
